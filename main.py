@@ -1,3 +1,7 @@
+"""Copy entry_image.jpg next to main.py byte for byte to entry.png.
+Use MAKEFUN_OUTPUT_DIR, or /output if unset, and create the directory if needed.
+"""
+
 import os
 import shutil
 import sys
