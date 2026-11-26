@@ -6,6 +6,12 @@
 
 This entry sums up the world news of 26 November 2026 in one image. Running `main.py` copies `entry_image.jpg` byte-for-byte to `entry.png` in the directory specified by `MAKEFUN_OUTPUT_DIR`, or in `/output` if the variable is unset or empty.
 
+## What the poster shows
+
+- A masthead dated Thursday 26 November 2026.
+- Six top stories as large cards with red category kickers.
+- Thirty more stories as one-line headlines.
+
 ```bash
 python3 main.py
 ```

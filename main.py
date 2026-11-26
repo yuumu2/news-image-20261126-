@@ -1,7 +1,8 @@
 """Copy the bundled entry_image.jpg byte for byte to entry.png.
 
-Create the directory specified by MAKEFUN_OUTPUT_DIR if needed, then report
-the number of bytes copied. Use /output when the variable is unset or empty.
+Create the directory specified by MAKEFUN_OUTPUT_DIR if needed and print
+the number of bytes copied. Use /output if the variable is unset or empty.
+If the source image is missing, report the error and exit with status 1.
 """
 
 import os
@@ -25,6 +26,7 @@ def main() -> int:
         with destination.open("wb") as output:
             shutil.copyfileobj(image, output)
             bytes_copied = output.tell()
+
     print(f"Copied {bytes_copied} bytes to {destination}")
     return 0
 
