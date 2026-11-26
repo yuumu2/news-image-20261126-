@@ -1,5 +1,7 @@
-"""Copy entry_image.jpg next to main.py byte for byte to entry.png.
-Use MAKEFUN_OUTPUT_DIR, or /output if unset, and create the directory if needed.
+"""Copy the bundled entry_image.jpg byte for byte to entry.png.
+
+Create the directory specified by MAKEFUN_OUTPUT_DIR if needed, then report
+the number of bytes copied. Use /output when the variable is unset or empty.
 """
 
 import os
@@ -8,7 +10,7 @@ import sys
 from pathlib import Path
 
 
-def main():
+def main() -> int:
     source = Path(__file__).resolve().with_name("entry_image.jpg")
     try:
         image = source.open("rb")
@@ -17,7 +19,7 @@ def main():
         return 1
 
     with image:
-        output_dir = Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
+        output_dir = Path(os.environ.get("MAKEFUN_OUTPUT_DIR") or "/output")
         output_dir.mkdir(parents=True, exist_ok=True)
         destination = output_dir / "entry.png"
         with destination.open("wb") as output:
